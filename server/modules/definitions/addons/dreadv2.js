@@ -852,7 +852,7 @@ module.exports = ({ Class }) => {
 				TYPE: ['square', {MIRROR_MASTER_ANGLE: true}]
 			},
 			{
-				POSITION: [23, 0, 0, 0, 0, 0],
+				POSITION: [21.5, 0, 0, 0, 0, 0],
 				TYPE: ['square', {COLOR: 9, MIRROR_MASTER_ANGLE: true}]
 			},
 		],
@@ -861,14 +861,6 @@ module.exports = ({ Class }) => {
 	    PARENT: ["genericSquarenought"],
 	    GUNS: [],
 	}
-	for (let i = 0; i < 4; i++) {
-		Class.colossalTopOfficialV2.GUNS.push(
-			{
-				POSITION: [2.5, 17.5, 0.001, 9, 0, 90*i, 0],
-				PROPERTIES: {COLOR: 9},
-			},
-		)
-	}
 	Class.colossalBottomOfficialV2 = {
 	    PARENT: ["genericSquarenought"],
 	    GUNS: [],
@@ -876,7 +868,7 @@ module.exports = ({ Class }) => {
 	for (let i = 0; i < 4; i++) {
 		Class.colossalTopOfficialV2.GUNS.push(
 			{
-				POSITION: [3.5, 17.5, 0.001, 9, 0, 90*i, 0],
+				POSITION: [1.5, 17.5, 0.001, 9, 0, 90*i, 0],
 				PROPERTIES: {COLOR: 9},
 			},
 		)
@@ -884,7 +876,7 @@ module.exports = ({ Class }) => {
 	for (let i = 0; i < 4; i++) {
 		Class.colossalBottomOfficialV2.GUNS.push(
 			{
-				POSITION: [4, 17.5, 0.001, 9, 0, 90*i, 0],
+				POSITION: [2, 17.5, 0.001, 9, 0, 90*i, 0],
 				PROPERTIES: {COLOR: 9},
 			},
 		)
@@ -899,7 +891,7 @@ module.exports = ({ Class }) => {
 		GUNS: [],
 	    TURRETS: [
 			{
-				POSITION: [13, 0, 0, 0, 0, 1],
+				POSITION: [14, 0, 0, 0, 0, 1],
 				TYPE: ['colossalTopOfficialV2', {MIRROR_MASTER_ANGLE: true}]
 			},
 			{
@@ -1192,6 +1184,76 @@ module.exports = ({ Class }) => {
 			},
 		)
 	}
+	Class.stormOfficialV2 = {
+	    PARENT: ["genericTrinought"],
+	    LABEL: "Storm",
+	    TURRETS: [],
+	}
+	for (let i = 0; i < 3; i++) {
+		Class.stormOfficialV2.TURRETS.push(
+			{
+				POSITION: [7, 9, 7, 10+120*i, 190, 0],
+				TYPE: "converterTurretOfficialV2"
+			},
+			{
+				POSITION: [7, 9, -7, 120*i-10, 190, 0],
+				TYPE: "converterTurretOfficialV2"
+			},
+			{
+				POSITION: [9, 8.5, 0, 120*i, 190, 0],
+				TYPE: "converterTurretOfficialV2"
+			},
+		)
+	}
+	Class.dissolverOfficialV2 = {
+	    PARENT: ["genericTrinought"],
+	    LABEL: "Dissolver",
+	    GUNS: [],
+	    TURRETS: [],
+	}
+	for (let i = 0; i < 3; i++) {
+		Class.dissolverOfficialV2.GUNS.push(
+    {
+      POSITION: [19, 2, 1, 0, -2.5, i*120, 0],
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([
+          g.basic,
+          g.gunner,
+          g.power,
+          g.twin,
+          g.tonsmorrecoil,
+          g.lotsmorrecoil,
+	  g.halfreload
+        ]),
+        TYPE: "bullet",
+      },
+    },
+    {
+      POSITION: [19, 2, 1, 0, 2.5, i*120, 0.5],
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([
+          g.basic,
+          g.gunner,
+          g.power,
+          g.twin,
+          g.tonsmorrecoil,
+          g.lotsmorrecoil,
+	  g.halfreload
+        ]),
+        TYPE: "bullet",
+      },
+    },
+    {
+      POSITION: [12, 11, 1, 0, 0, i*120, 0],
+    },
+		),
+		Class.dissolverOfficialV2.TURRETS.push(
+			{
+				POSITION: [9, 11, 0, 60+120*i, 190, 0],
+				TYPE: "converterTurretOfficialV2"
+			},
+		)
+	}
 
 	// T3 Bodies
 	Class.mechanismOfficialV2 = {
@@ -1422,7 +1484,7 @@ module.exports = ({ Class }) => {
 				TYPE: ['triangle', {COLOR: 9, MIRROR_MASTER_ANGLE: true}]
 			},
 			{
-				POSITION: [24, 0, 0, 180, 0, 0],
+				POSITION: [22, 0, 0, 180, 0, 0],
 				TYPE: ['triangle', {COLOR: 9, MIRROR_MASTER_ANGLE: true}]
 			},
 		],
@@ -1478,7 +1540,7 @@ module.exports = ({ Class }) => {
 	for (let i = 0; i < 3; i++) {
 		Class.moonOfficialV2.TURRETS.push(
 			{
-				POSITION: [3.5, 10.5, 0, 120*i+60, 360, 1],
+				POSITION: [2, 10.5, 0, 120*i+60, 360, 1],
 				TYPE: "trinoughtSmallHealAura",
 			},
 		)
@@ -1490,7 +1552,7 @@ module.exports = ({ Class }) => {
 	for (let i = 0; i < 3; i++) {
 		Class.titanTopOfficialV2.GUNS.push(
 			{
-				POSITION: [5, 26, 0.001, 8, 0, 120*i, 0],
+				POSITION: [2, 26, 0.001, 8, 0, 120*i, 0],
 				PROPERTIES: {COLOR: 9},
 			},
 		)
@@ -1930,6 +1992,127 @@ module.exports = ({ Class }) => {
 			},
 		)
 	}
+	Class.dusterOfficialV2 = {
+	    PARENT: ["genericPentanought"],
+	    LABEL: "Duster",
+	    TURRETS: [],
+	}
+	for (let i = 0; i < 5; i++) {
+		Class.dusterOfficialV2.TURRETS.push(
+			{
+				POSITION: [6, 9, 3, 7+72*i, 190, 0],
+				TYPE: "converterTurretOfficialV2"
+			},
+			{
+				POSITION: [6, 9, -3, 72*i-7, 190, 0],
+				TYPE: "converterTurretOfficialV2"
+			},
+			{
+				POSITION: [8, 8.5, 0, 72*i, 190, 0],
+				TYPE: "converterTurretOfficialV2"
+			},
+		)
+	}
+               Class.dusterHexTurret = {
+                   PARENT: ["converterTurretOfficialV2"],
+                   GUNS:
+                   [
+			{
+				POSITION: [18, 7, 1, 0, 0, 0, 0],
+				PROPERTIES: {
+					SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.hunter, {reload: 2.5, density: 1/2, speed: 1.65}]),
+					TYPE: "bullet",
+				},
+			},
+			{
+				POSITION: [16, 10, 1, 0, 0, 0, 0.15],
+				PROPERTIES: {
+					SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.hunter, {reload: 2.5, density: 1/2, speed: 1.65}]),
+					TYPE: "bullet",
+				},
+			},
+                   ]
+               }
+	Class.duster2OfficialV2 = {
+	    PARENT: ["genericHexnought"],
+	    LABEL: "Duster",
+	    TURRETS: [],
+	}
+	for (let i = 0; i < 6; i++) {
+		Class.duster2OfficialV2.TURRETS.push(
+			{
+				POSITION: [4.5, 9, 2, 7+60*i, 190, 0],
+				TYPE: "converterTurretOfficialV2"
+			},
+			{
+				POSITION: [4.5, 9, -2, 60*i-7, 190, 0],
+				TYPE: "converterTurretOfficialV2"
+			},
+			{
+				POSITION: [6, 9, 0, 60*i, 190, 0],
+				TYPE: "dusterHexTurret"
+			},
+		)
+	}
+	Class.stellaratorOfficialV2 = {
+	    PARENT: ["genericPentanought"],
+	    LABEL: "Stellarator",
+	    GUNS: [],
+	    TURRETS: [],
+	}
+	for (let i = 0; i < 5; i++) {
+		Class.stellaratorOfficialV2.GUNS.push(
+    {
+      /*** LENGTH  WIDTH   ASPECT    X       Y     ANGLE   DELAY */
+      POSITION: [19, 2, 1, 0, -2.5, 72*i, 0.25],
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([
+          g.basic,
+          g.gunner,
+          g.power,
+          g.twin,
+          g.nail,
+        ]),
+        TYPE: "bullet",
+      },
+    },
+    {
+      POSITION: [19, 2, 1, 0, 2.5, 72*i, 0.75],
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([
+          g.basic,
+          g.gunner,
+          g.power,
+          g.twin,
+          g.nail,
+        ]),
+        TYPE: "bullet",
+      },
+    },
+    {
+      POSITION: [20, 2, 1, 0, 0, 72*i, 0],
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([
+          g.basic,
+          g.gunner,
+          g.power,
+          g.twin,
+          g.nail,
+        ]),
+        TYPE: "bullet",
+      },
+    },
+    {
+      POSITION: [5.5, 7, -1.8, 6.5, 0, 72*i, 0],
+    },
+		),
+		Class.stellaratorOfficialV2.TURRETS.push(
+			{
+				POSITION: [8, 9, 0, 36+72*i, 190, 0],
+				TYPE: "converterTurretOfficialV2"
+			},
+		)
+	}
 
 	// T4 Bodies
 	Class.skynetOfficialV2 = {
@@ -2252,7 +2435,7 @@ module.exports = ({ Class }) => {
 		);
 		Class.pentagonLeviathanBottomOfficialV2.GUNS.push(
 			{
-				POSITION: [7, 17, 0.001, 9, 0, 72*i, 0],
+				POSITION: [7, 9, 0.001, 9, 0, 72*i, 0],
 				PROPERTIES: {COLOR: 9},
 			},
 		);
@@ -2278,7 +2461,7 @@ module.exports = ({ Class }) => {
 		)
 		Class.hexagonLeviathanBottomOfficialV2.GUNS.push(
 			{
-				POSITION: [7, 13.5, 0.001, 9.5, 0, 60*i, 0],
+				POSITION: [7, 10.5, 0.001, 9.5, 0, 60*i, 0],
 				PROPERTIES: {COLOR: 9},
 			},
 		)
@@ -2416,7 +2599,12 @@ module.exports = ({ Class }) => {
 					Class.beelzebubOfficialV2.UPGRADES_TIER_0 = ["luciferOfficialV2"];
 						Class.luciferOfficialV2.UPGRADES_TIER_0 = [];
 
-                                             Class.converterOfficialV2.UPGRADES_TIER_0 = ["melderOfficialV2", "windOfficialV2"];
+                                        Class.converterOfficialV2.UPGRADES_TIER_0 = ["melderOfficialV2", "windOfficialV2"];
+                                                Class.melderOfficialV2.UPGRADES_TIER_0 = ["dissolverOfficialV2"];
+                                                           Class.dissolverOfficialV2.UPGRADES_TIER_0 = ["stellaratorOfficialV2"];
+                                               Class.windOfficialV2.UPGRADES_TIER_0 = ["stormOfficialV2"];
+				                           Class.stormOfficialV2.UPGRADES_TIER_0 = ["dusterOfficialV2"];
+				                                  Class.dusterOfficialV2.UPGRADES_TIER_0 = ["duster2OfficialV2"];
 
 		Class.dreadBodyOfficialV2.UPGRADES_TIER_0 = ["byteOfficialV2", "atmosphereOfficialV2", "juggernautOfficialV2", "menderOfficialV2"];
 
@@ -2566,9 +2754,9 @@ module.exports = ({ Class }) => {
 
 		// Label
 		let name1 = hexDreadNames[weapon1.LABEL][weapon2.LABEL],
-			name2 = hexDreadNames[weapon2.LABEL][weapon1.LABEL],
-			weaponName = "",
-			orientationId = 0;
+                              name2 = hexDreadNames[weapon2.LABEL][weapon1.LABEL],
+                              weaponName = "",
+                              orientationId = 0;
 		if(name1) {
 			weaponName = name1;
 		} else {
