@@ -1941,6 +1941,30 @@ exports.rifle = {
     ],
 };
 
+exports.railgun = {
+    PARENT: ["genericTank"],
+    LABEL: "Railgun",
+    BODY: {
+        FOV: 1.2 * base.FOV,
+    },
+  GUNS: [
+    {
+      /*** LENGTH  WIDTH   ASPECT    X       Y     ANGLE   DELAY */
+      POSITION: [22, 7.5, 1, 0, 0, 0, 0],
+    },
+    {
+      POSITION: [26, 5, 1, 0, 0, 0, 0],
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.railgun]),
+        TYPE: "bullet",
+      },
+    },
+    {
+      POSITION: [4.5, 7.5, -1.6, 8, 0, 0, 0],
+    },
+  ],
+};
+
 // ASSASSIN UPGRADES
 exports.ranger = {
     PARENT: ["genericTank"],
@@ -5370,7 +5394,7 @@ exports.basic.UPGRADES_TIER_1 = ["twin", "sniper", "machineGun", "flankGuard", "
         exports.tripleShot.UPGRADES_TIER_3 = ["pentaShot", "spreadshot", "bentHybrid", "bentDouble", "triplet"];
 
     exports.sniper.UPGRADES_TIER_2 = ["assassin", "hunter", "minigun", "rifle"];
-        exports.sniper.UPGRADES_TIER_3 = ["bushwhacker"];
+        exports.sniper.UPGRADES_TIER_3 = ["bushwhacker", "railgun"];
         exports.assassin.UPGRADES_TIER_3 = ["ranger", "falcon", "stalker", "autoAssassin", "single"];
         exports.hunter.UPGRADES_TIER_3 = ["predator", "xHunter", "poacher", "ordnance", "dual"];
         exports.rifle.UPGRADES_TIER_3 = ["musket", "crossbow", "armsman"];
