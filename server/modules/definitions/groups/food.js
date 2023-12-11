@@ -535,6 +535,8 @@ for (let [gemColor, name] of [
     exports[name + "PentagonRelic"] = makeRelic(exports.pentagon, -0.6, gem);
     exports[name + "BetaPentagonRelic"] = makeRelic(exports.betaPentagon, -0.6, gem);
     exports[name + "AlphaPentagonRelic"] = makeRelic(exports.alphaPentagon, -0.6, gem);
+    exports[name + "HexagonRelic"] = makeRelic(exports.hexagon, -0.6, gem);
+    exports[name + "HeptagonRelic"] = makeRelic(exports.heptagon, -0.6, gem);
 }
 
 // 4D
