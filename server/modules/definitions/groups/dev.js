@@ -284,11 +284,11 @@ compileMatrix(gemRelicMatrix);
 let labyTensor = [];
 for (let tier = 0; tier < 6; tier++) {
     let row = [];
-    for (let poly of [ "Egg", "Square", "Triangle", "Pentagon", "Hexagon" ]) {
+    for (let poly of [ "Egg", "Square", "Triangle", "Pentagon", "Hexagon", "Heptagon" ]) {
         let column = [];
         for (let shiny of [ "", "Shiny", "Legendary", "Shadow", "Rainbow", "Trans" ]) {
             let str = `laby${tier}${shiny}${poly}`,
-                LABEL = str[0].toUpperCase() + str.slice(1).replace(/\d/, d => ["", "Beta", "Alpha", "Omega", "Gamma", "Delta"][d]).replace(/[A-Z]/g, m => ' ' + m) + " Generator",
+                LABEL = str[0].toUpperCase() + str.slice(1).replace(/\d/, d => ["", "Beta", "Alpha", "Omega", "Ultra", "Super"][d]).replace(/[A-Z]/g, m => ' ' + m) + " Generator",
                 code = str + 'Generator';
             column.push(exports[code] = {
                 PARENT: "spectator",
