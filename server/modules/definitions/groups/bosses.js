@@ -2037,49 +2037,9 @@ for(let i = 0; i < 7; i++) {
         },
     )
 };
-exports.railbullet = {
-    PARENT: ["bullet"],
-    LABEL: "Railed Bullet",
-    BODY: {
-        RANGE: 100,
-        FOV: 0.5,
-    },
-    FACING_TYPE: "turnWithSpeed",
-    INDEPENDENT: true,
-    CONTROLLERS: ["alwaysFire", "nearestDifferentMaster", "targetSelf"],
-    AI: {
-        NO_LEAD: true,
-    },
-    GUNS: [
-        {
-            POSITION: [7, 9.5, 0.6, 7, 0, 0, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.swarm, g.hive, g.bees]),
-                TYPE: ["bee", { INDEPENDENT: true }],
-                STAT_CALCULATOR: gunCalcNames.swarm,
-            },
-        },
-        {
-            POSITION: [7, 9.5, 0.6, 7, 0, 120, 0.2],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.swarm, g.hive, g.bees]),
-                TYPE: ["bee", { INDEPENDENT: true }],
-                STAT_CALCULATOR: gunCalcNames.swarm,
-            },
-        },
-        {
-            POSITION: [7, 9.5, 0.6, 7, 0, -120, 0.4],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.swarm, g.hive, g.bees]),
-                TYPE: ["bee", { INDEPENDENT: true }],
-                STAT_CALCULATOR: gunCalcNames.swarm,
-            },
-        },
-    ],
-};
-exports.protoSwarmerTurret = {
+exports.railTurret = {
     PARENT: ["genericTank"],
-    LABEL: "Swarmer",
+    LABEL: "Rail",
     BODY: {
         FOV: 2,
     },
@@ -2090,18 +2050,22 @@ exports.protoSwarmerTurret = {
         "nearestDifferentMaster",
     ],
     COLOR: 16,
-    GUNS: [
-        {
-            POSITION: [10, 14, -1.2, 5, 0, 0, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.pound, g.destroy, g.hive]),
-                TYPE: "protoHive",
-            },
-        },
-        {
-            POSITION: [11, 12, 1, 5, 0, 0, 0],
-        },
-    ],
+  GUNS: [
+    {
+      /*** LENGTH  WIDTH   ASPECT    X       Y     ANGLE   DELAY */
+      POSITION: [22, 7.5, 1, 0, 0, 0, 0],
+    },
+    {
+      POSITION: [26, 5, 1, 0, 0, 0, 0],
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.railgun]),
+        TYPE: "bullet",
+      },
+    },
+    {
+      POSITION: [4.5, 7.5, -1.6, 8, 0, 0, 0],
+    },
+  ],
 };
 exports.shonenLowerBody = {
     LABEL: "",
@@ -2119,17 +2083,10 @@ exports.shonenLowerBody = {
     GUNS: [],
 };
 for(let i = 0; i < 7; i++) {
-    exports.aresLowerBody.GUNS.push(
+    exports.shonenLowerBody.TURRETS.push(
         {
-            POSITION: [3.75, 7, 1.2, 8, 0, 360/7*(i+0.5), 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.drone, g.summoner, g.destroy, g.halfspeed]),
-                TYPE: ["realchip", { INDEPENDENT: true, }],
-                AUTOFIRE: true,
-                SYNCS_SKILLS: true,
-                STAT_CALCULATOR: gunCalcNames.necro,
-                WAIT_TO_CYCLE: true,
-            },
+            POSITION: [10, 8.5, 0, 360/5*(i+0.5), 160, 0],
+            TYPE: ["skimmerTurret", { INDEPENDENT: true, }],
         },
     )
 };
@@ -2146,7 +2103,7 @@ exports.shonenUpperBody = {
     TURRETS: [],
 };
 for(let i = 0; i < 5; i++) {
-    exports.aresUpperBody.TURRETS.push(
+    exports.shonenUpperBody.TURRETS.push(
         {
             POSITION: [10, 8.5, 0, 360/5*(i+0.5), 160, 0],
             TYPE: ["boomerTurret", { INDEPENDENT: true, }],
@@ -2156,7 +2113,7 @@ for(let i = 0; i < 5; i++) {
 exports.shonen = {
     PARENT: ["terrestrial"],
     NAME: "Shonen",
-    UPGRADE_LABEL: "Ares",
+    UPGRADE_LABEL: "Shonen",
     COLOR: 12,
     TURRETS: [
         {
