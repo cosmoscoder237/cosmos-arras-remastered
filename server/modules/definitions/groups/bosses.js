@@ -1697,6 +1697,7 @@ for(let i = 0; i < 7; i++) {
     )
 };
 
+
 exports.swarmTurret = {
     PARENT: ["genericTank"],
     LABEL: "Swarm",
@@ -2030,6 +2031,146 @@ exports.selene = {
 };
 for(let i = 0; i < 7; i++) {
     exports.selene.TURRETS.push(
+        {
+            POSITION: [7, 9, 0, 360/7*(i+0.5), 180, 0],
+            TYPE: ["terrestrialTrapTurret", { INDEPENDENT: true, }],
+        },
+    )
+};
+exports.protoHive = {
+    PARENT: ["bullet"],
+    LABEL: "Proto-Hive",
+    BODY: {
+        RANGE: 90,
+        FOV: 0.5,
+    },
+    FACING_TYPE: "turnWithSpeed",
+    INDEPENDENT: true,
+    CONTROLLERS: ["alwaysFire", "nearestDifferentMaster", "targetSelf"],
+    AI: {
+        NO_LEAD: true,
+    },
+    GUNS: [
+        {
+            POSITION: [7, 9.5, 0.6, 7, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm, g.hive, g.bees]),
+                TYPE: ["bee", { INDEPENDENT: true }],
+                STAT_CALCULATOR: gunCalcNames.swarm,
+            },
+        },
+        {
+            POSITION: [7, 9.5, 0.6, 7, 0, 120, 0.2],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm, g.hive, g.bees]),
+                TYPE: ["bee", { INDEPENDENT: true }],
+                STAT_CALCULATOR: gunCalcNames.swarm,
+            },
+        },
+        {
+            POSITION: [7, 9.5, 0.6, 7, 0, -120, 0.4],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm, g.hive, g.bees]),
+                TYPE: ["bee", { INDEPENDENT: true }],
+                STAT_CALCULATOR: gunCalcNames.swarm,
+            },
+        },
+    ],
+};
+exports.protoSwarmerTurret = {
+    PARENT: ["genericTank"],
+    LABEL: "Swarmer",
+    BODY: {
+        FOV: 2,
+    },
+    CONTROLLERS: [
+        "canRepel",
+        "onlyAcceptInArc",
+        "mapAltToFire",
+        "nearestDifferentMaster",
+    ],
+    COLOR: 16,
+    GUNS: [
+        {
+            POSITION: [10, 14, -1.2, 5, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pound, g.destroy, g.hive]),
+                TYPE: "protoHive",
+            },
+        },
+        {
+            POSITION: [11, 12, 1, 5, 0, 0, 0],
+        },
+    ],
+};
+exports.aresLowerBody = {
+    LABEL: "",
+    CONTROLLERS: [["spin", { independent: true, speed: -0.005 }]],
+    COLOR: 14,
+    SIZE: 100,
+    SKILL: [9, 9, 9, 9, 9, 9, 9, 9, 9, 9],
+    SHAPE: 7,
+    INDEPENDENT: true,
+    BODY: {
+        FOV: 10,
+    },
+    MAX_CHILDREN: 18,
+    FACING_TYPE: "autospin",
+    GUNS: [],
+};
+for(let i = 0; i < 7; i++) {
+    exports.aresLowerBody.GUNS.push(
+        {
+            POSITION: [3.75, 7, 1.2, 8, 0, 360/7*(i+0.5), 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.drone, g.summoner, g.destroy, g.halfspeed]),
+                TYPE: ["demonchip", { INDEPENDENT: true, }],
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+                STAT_CALCULATOR: gunCalcNames.necro,
+                WAIT_TO_CYCLE: true,
+            },
+        },
+    )
+};
+exports.shonenUpperBody = {
+    LABEL: "",
+    CONTROLLERS: [["spin", { independent: true, speed: 0.005 }]],
+    AUTOSPIN: true,
+    COLOR: 12,
+    SIZE: 100,
+    SKILL: [9, 9, 9, 9, 9, 9, 9, 9, 9, 9],
+    MAX_CHILDREN: 28,
+    SHAPE: 5,
+    INDEPENDENT: true,
+    TURRETS: [],
+};
+for(let i = 0; i < 5; i++) {
+    exports.aresUpperBody.TURRETS.push(
+        {
+            POSITION: [10, 8.5, 0, 360/5*(i+0.5), 160, 0],
+            TYPE: ["protoSwarmerTurret", { INDEPENDENT: true, }],
+        },
+    )
+};
+exports.shonen = {
+    PARENT: ["terrestrial"],
+    NAME: "Shonen",
+    UPGRADE_LABEL: "Ares",
+    COLOR: 12,
+    TURRETS: [
+        {
+            POSITION: [14.5, 0, 0, 0, 360, 1],
+            TYPE: ["shonenLowerBody"],
+        },
+        {
+            POSITION: [9, 0, 0, 0, 360, 1],
+            TYPE: ["shonenUpperBody"],
+        },
+    ],
+};
+for(let i = 0; i < 7; i++) {
+    exports.shonen.TURRETS.push(
         {
             POSITION: [7, 9, 0, 360/7*(i+0.5), 180, 0],
             TYPE: ["terrestrialTrapTurret", { INDEPENDENT: true, }],
