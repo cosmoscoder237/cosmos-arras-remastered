@@ -2037,11 +2037,11 @@ for(let i = 0; i < 7; i++) {
         },
     )
 };
-exports.protoHive = {
+exports.railbullet = {
     PARENT: ["bullet"],
-    LABEL: "Proto-Hive",
+    LABEL: "Railed Bullet",
     BODY: {
-        RANGE: 90,
+        RANGE: 100,
         FOV: 0.5,
     },
     FACING_TYPE: "turnWithSpeed",
@@ -2103,7 +2103,7 @@ exports.protoSwarmerTurret = {
         },
     ],
 };
-exports.aresLowerBody = {
+exports.shonenLowerBody = {
     LABEL: "",
     CONTROLLERS: [["spin", { independent: true, speed: -0.005 }]],
     COLOR: 14,
@@ -2124,7 +2124,7 @@ for(let i = 0; i < 7; i++) {
             POSITION: [3.75, 7, 1.2, 8, 0, 360/7*(i+0.5), 0],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.drone, g.summoner, g.destroy, g.halfspeed]),
-                TYPE: ["demonchip", { INDEPENDENT: true, }],
+                TYPE: ["realchip", { INDEPENDENT: true, }],
                 AUTOFIRE: true,
                 SYNCS_SKILLS: true,
                 STAT_CALCULATOR: gunCalcNames.necro,
@@ -2149,7 +2149,7 @@ for(let i = 0; i < 5; i++) {
     exports.aresUpperBody.TURRETS.push(
         {
             POSITION: [10, 8.5, 0, 360/5*(i+0.5), 160, 0],
-            TYPE: ["protoSwarmerTurret", { INDEPENDENT: true, }],
+            TYPE: ["boomerTurret", { INDEPENDENT: true, }],
         },
     )
 };
