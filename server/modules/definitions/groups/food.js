@@ -113,7 +113,7 @@ makeLaby = (type, level) => {
         LABEL: ["", "Beta ", "Alpha ", "Omega ", "Ultra ", "Super "][level] + type.LABEL,
         VALUE: type.VALUE * strenghtMultiplier,
         SHAPE: type.SHAPE,
-        SIZE: level > 3 ? Math.max(40, type.SIZE * 2) * (1 + (level - 3) / 6) : type.SIZE * lerp(2 ** level, 1 + level / 3, Math.min(1, (type.SIZE - 5) / 17)),
+        SIZE: type.SIZE * 1 + (strenghtMultiplier/6),
         COLOR: type.COLOR,
         ALPHA: type.ALPHA,
         BODY: {
