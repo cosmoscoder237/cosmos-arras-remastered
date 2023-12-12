@@ -144,32 +144,35 @@ module.exports = {
     // The possible food types that can spawn.
     FOOD_TYPES: [
         [2000, [
-            [1024, 'egg'], [256, 'square'], [64, 'triangle'], [16, 'pentagon'], [4, 'betaPentagon'], [1, 'alphaPentagon']
+            [1024, 'egg'], [256, 'square'], [64, 'triangle'], [16, 'pentagon'], [4, 'hexagon'], [1, 'heptagon']
         ]],
         [1, [
-            [3125, 'gem'], [625, 'shinySquare'], [125, 'shinyTriangle'], [25, 'shinyPentagon'], [5, 'shinyBetaPentagon'], [1, 'shinyAlphaPentagon']
+            [3125, 'gem'], [625, 'shinySquare'], [125, 'shinyTriangle'], [25, 'shinyPentagon'], [5, 'shinyhexagon'], [1, 'shinyheptagon']
         ]],
         [0.1, [
-            [6836, 'jewel'], [1296, 'legendarySquare'], [216, 'legendaryTriangle'], [36, 'legendaryPentagon'], [6, 'legendaryBetaPentagon'], [1, 'legendaryAlphaPentagon']
+            [6836, 'jewel'], [1296, 'legendarySquare'], [216, 'legendaryTriangle'], [36, 'legendaryPentagon'], [6, 'legendaryhexagon'], [1, 'legendaryheptagon']
         ]],
         [0.005, [
-            /*[16807, 'egg'], */[2401, 'shadowSquare'], [343, 'shadowTriangle'], [49, 'shadowPentagon'], [7, 'shadowBetaPentagon'], [1, 'shadowAlphaPentagon']
+            /*[16807, 'egg'], */[2401, 'shadowSquare'], [343, 'shadowTriangle'], [49, 'shadowPentagon'], [7, 'shadowhexagon'], [1, 'shadowheptagon']
         ]],
         [0.001, [
-            /*[65536, 'egg'], */[8192, 'rainbowSquare'], [1024, 'rainbowTriangle'], [64, 'rainbowPentagon'], [8, 'rainbowBetaPentagon'], [1, 'rainbowAlphaPentagon']
+            /*[65536, 'egg'], */[8192, 'rainbowSquare'], [1024, 'rainbowTriangle'], [64, 'rainbowPentagon'], [8, 'rainbowhexagon'], [1, 'rainbowheptagon']
         ]],
         [0.0005, [
-            [59549, 'egg'], [6561, 'transSquare'], [729, 'transTriangle'], [81, 'transPentagon'], [9, 'transBetaPentagon'], [1, 'transAlphaPentagon']
+            [59549, 'egg'], [6561, 'transSquare'], [729, 'transTriangle'], [81, 'transPentagon'], [9, 'transhexagon'], [1, 'transheptagon']
         ]],
-        [0.0001, [
-            [100000, 'sphere'], [10000, 'cube'], [1000, 'tetrahedron'], [100, 'octahedron'], [10, 'dodecahedron'], [1, 'icosahedron']
+        [0.00005, [
+            [100000, 'biegg'], [10000, 'biSquare'], [1000, 'biTriangle'], [100, 'biPentagon'], [10, 'bihexagon'], [1, 'biheptagon']
+        ]],
+        [0.00001, [
+            [161051, 'sphere'], [14641, 'cube'], [1331, 'tetrahedron'], [121, 'octahedron'], [11, 'dodecahedron'], [1, 'icosahedron']
         ]]
     ],
 
     // The possible nest food types that can spawn.
     FOOD_TYPES_NEST: [
         [1, [
-            [16, 'pentagon'], [ 4, 'betaPentagon'], [ 1, 'alphaPentagon']
+            [16, 'pentagon'], [ 4, 'hexagon'], [ 1, 'heptagon']
         ]]
     ],
 
