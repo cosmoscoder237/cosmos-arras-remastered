@@ -2106,7 +2106,7 @@ for(let i = 0; i < 5; i++) {
     exports.shonenUpperBody.TURRETS.push(
         {
             POSITION: [10, 8.5, 0, 360/5*(i+0.5), 160, 0],
-            TYPE: ["boomerTurret", { INDEPENDENT: true, }],
+            TYPE: ["railTurret", { INDEPENDENT: true, }],
         },
     )
 };
